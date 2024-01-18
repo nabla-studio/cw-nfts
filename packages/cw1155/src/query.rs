@@ -41,7 +41,7 @@ pub enum Cw1155QueryMsg {
     /// returns metadata URI for token type `id`
     /// Return type: URIResponse
     #[returns(URIResponse)]
-    URI { id: String },
+    Uri { id: String },
 }
 
 #[cw_serde]

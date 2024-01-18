@@ -89,8 +89,8 @@ messages. It works as the `Cw1155ReceiveMsg`.
 
 #### Queries
 
-- `URI{ id }` - Queries the metadata uri of token of type `id`.
+- `Uri{ id }` - Queries the metadata uri of token of type `id`.
 
 #### Events
 
-- `URI{ uri, id }` - Is emitted when the URI value for token type `id` changes.
+- `Uri{ uri, id }` - Is emitted when the URI value for token type `id` changes.
