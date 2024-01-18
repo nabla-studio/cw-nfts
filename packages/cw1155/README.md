@@ -32,13 +32,14 @@ operator should either be the `from` account or have approval from it.
 - `BatchTransferFrom{ from, to, batch: Vec<( id, amount )>, msg }` - Batched 
 version of `TransferFrom` which can handle multiple types of tokens at once.
 
-- `ApproveAll{ operator, expires }` - Grants `operator` the permission to transfer
-all tokens owned by `env.sender`. This approval is tied to the owner, not the
-tokens and, while valid, it applies to any future token that the owner receives
-as well. If `expires` is set, this allowance has a height limit.
+- `ApproveAll{ operator, expires }` - Grants `operator` the permission to 
+operate on all tokens owned by `env.sender`. This approval is tied to the 
+owner, not the tokens and, while valid, it applies to any future token that 
+the owner receives as well. If `expires` is set, this allowance has a 
+time/height limit.
 
 - `RevokeAll{ operator }` - Revokes `operator` a previously granted `ApproveAll` 
-permission to transfer any token.
+permission to operate on any token.
 
 #### Queries
 
@@ -60,7 +61,7 @@ to multiple `TransferSingle` events, where `operator`, `from` and `to` are the
 same for all transfers.
 
 - `ApprovedForAll{ account, operator, approved }` - Is emitted when `account` 
-grants or revokes permission to `operator` to transfer their tokens. `approved`
+grants or revokes permission to `operator` to operate on its tokens. `approved`
 is the bool tracking grant or revoke.
 
 #### Receiver
