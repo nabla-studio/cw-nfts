@@ -4,6 +4,12 @@ use cosmwasm_std::{Binary, Uint128};
 use cw_utils::Expiration;
 
 #[cw_serde]
+pub struct Token {
+    pub id: String,
+    pub amount: u128,
+}
+
+#[cw_serde]
 pub enum Cw1155ExecuteMsg {
     /// allows to move tokens. It works if `env.sender` (the operator) either
     /// is the `from` account or has approval from it
@@ -33,8 +39,8 @@ pub enum Cw1155ExecuteMsg {
         /// contract, the `msg` should be None.
         to: String,
         /// the list of the ids of the tokens to transfer together with their
-        /// amount, for each token type
-        batch: Vec<(String, Uint128)>,
+        /// amount, for each token type.
+        batch: Vec<Token>,
         /// `None` means the `to` address is not a contract, or no particular
         /// call on the receiver smart contract interface
         msg: Option<Binary>,
